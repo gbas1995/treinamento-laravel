@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+// Linha do Bahba
 //
 // Exemplo 3 de redirecionamento
 Route::get('/redirecionamento3', function() {
