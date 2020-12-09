@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+//
 // Exemplo 3 de redirecionamento
 Route::get('/redirecionamento3', function() {
     return redirect()->route('url.nova');
