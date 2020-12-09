@@ -1,6 +1,69 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+
+//Rotas agrupadas
+
+Route::get('/login', function(){
+    return "Fazer Login";
+
+})->name('login');
+
+Route::middleware([])->group(function(){
+
+    Route:: prefix('admin')->group(function(){
+
+        /*Route::namespace('Admin')->group(function(){
+            Route::name('admin.')->group(function(){
+                Route::get('/dashboard', 'Admin\TesteController@index')->name('admin.dashboard');
+        
+                Route::get('/financeiro', 'Admin\TesteController@index')->name('admin.financeiro');
+                
+                Route::get('/produtos', 'Admin\TesteController@index')->name('admin.produtos');
+        
+                Route::get('/', 'Admin\TesteController@index')->name('admin.home');
+        
+                Route:: get('/', function(){
+                return redirect()->route('admin.dashboard');
+        
+                 })->name('home');
+
+            
+
+            });
+
+         });
+
+    });
+}); */
+
+Route::group([
+    'middleware' => [],
+    'prefix' => 'admin',
+    'namespace' => 'Admin'
+], function(){
+
+    Route::name('admin.')->group(function(){
+        Route::get('/dashboard', 'Admin\TesteController@index')->name('admin.dashboard');
+
+        Route::get('/financeiro', 'Admin\TesteController@index')->name('admin.financeiro');
+        
+        Route::get('/produtos', 'Admin\TesteController@index')->name('admin.produtos');
+
+        Route::get('/', 'Admin\TesteController@index')->name('admin.home');
+
+        Route:: get('/', function(){
+        return redirect()->route('admin.dashboard');
+
+         })->name('home');
+
+    });
+});
+
+
+
+
+
 // Linha do Bahba
 //
 // Exemplo 3 de redirecionamento
@@ -57,7 +120,7 @@ Route::get('/teste', function () {
 });
 
 
-Route::get('/', function () {
+/*Route::get('/', function () {
     return view('welcome');
 });
 
@@ -67,4 +130,4 @@ Route::get('/view2', function () {
 
 Route::match(['get','post'], '/certeira', function () {
     return "Deu Match";
-});
+}); */
