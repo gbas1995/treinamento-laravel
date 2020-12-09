@@ -13,7 +13,8 @@ Route::middleware([])->group(function(){
 
     Route:: prefix('admin')->group(function(){
 
-        /*Route::namespace('Admin')->group(function(){
+        Route::namespace('Admin')->group(function(){
+            
             Route::name('admin.')->group(function(){
                 Route::get('/dashboard', 'Admin\TesteController@index')->name('admin.dashboard');
         
@@ -35,9 +36,9 @@ Route::middleware([])->group(function(){
          });
 
     });
-}); */
+}); 
 
-Route::group([
+/*Route::group([
     'middleware' => [],
     'prefix' => 'admin',
     'namespace' => 'Admin'
@@ -58,7 +59,7 @@ Route::group([
          })->name('home');
 
     });
-});
+});*/
 
 
 
