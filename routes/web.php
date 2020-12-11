@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Route;
 
 //Rotas agrupadas
 
-Route::get('/login', function(){
+/*Route::get('/login', function(){
     return "Fazer Login";
 })->name('login');
 
@@ -30,7 +30,7 @@ Route::middleware([])->group(function(){
     });
 }); 
 
-
+*/
 /*Route::group([
         'middleware' => [],
         'prefix' => 'admin',
@@ -124,15 +124,28 @@ Route::match(['get','post'], '/certeira', function () {
 }); */
 
 
-Route::get('/', function () {
+/*Route::get('/', function () {
     return view('welcome');
-}); 
+}); */
 
 
 //controllers 10/12/2020
 //ProdutoController
-Route::get('produtos', 'ProdutoController@index');
-Route::get('produto/{id?}', 'ProdutoController@show');
-Route::get('produtos/{id}/edit', 'ProdutoController@edit');
-Route::put('produto', 'ProdutoController@update');
+
+//usando resource
+Route::resource('produtos', 'ProdutoController');
+ 
+/*Route::delete('produtos/{id}', 'ProdutoController@destroy')->name('produtos.destroy');
+Route::put('produtos/{id}', 'ProdutoController@update')->name('produtos.update');
+Route::post('produtos', 'ProdutoController@store')->name('produtos.store');
+Route::get('produtos/{id}/edit', 'ProdutoController@edit')->name('produtos.edit');
+Route::get('produtos/create', 'ProdutoController@create')-> name('produtos.create');
+Route::get('produtos/{id?}', 'ProdutoController@show')-> name('produtos.show');
+Route::get('produtos', 'ProdutoController@index')-> name('produtos.index');
+*/
+
+//Route::get('produtos/{id}/edit', 'ProdutoController@edit');
+//Route::put('produto', 'ProdutoController@update');
+
+
  
