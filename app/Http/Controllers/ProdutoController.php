@@ -8,17 +8,23 @@ class ProdutoController extends Controller
 
 {   
     //protected $request;
-    public function __construct(Request $request){
+    /*public function __construct(Request $request){
         $this->request = $request;
         $this->middleware('auth')->only(['show,','index']);
-    }
+    }*/
 
     public function index(){
-        return "Listagem de produtos";
+
+        $teste = 123;
+        $produtos  = ['Xbox Series X', 'Galaxy Note,', 'Tv 65', 'Macbook'];
+        $mensagem = "Produto enviado com sucesso";
+       // return "Listagem de produtos";
+
+        return view('admin.pages.produtos.index', compact('teste','produtos', 'mensagem'));
     }
 
     public function show($id = null){
-       return "Mostrando o produto com id: {$id}";
+       
     }
 
     /*public function edit($id = null){
@@ -32,19 +38,21 @@ class ProdutoController extends Controller
     }  */
 
     public function create(){
-        return "Form de criação do produto: ";
+        return view('admin.pages.produtos.create');
     }
 
-    public function edit(){
-        return "Formulário de edição de produto";
+    public function edit($id){
+
+        return view('admin.pages.produtos.edit', compact('id'));
     }
 
     public function store(Request $request){
-        return "Aqui eu salvo o formulário na base de dados";
+        dd('Cadastrando..');
     }
 
     public function update($id, Request $request){
-        return "Aqui vou fazer o update na base";
+        
+        dd('Salvando a edição...');
     }
 
     public function destroy($id){
